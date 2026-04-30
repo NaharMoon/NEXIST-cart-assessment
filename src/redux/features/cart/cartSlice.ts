@@ -1,0 +1,49 @@
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+// Product type (TypeScript use)
+export interface Product {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+}
+
+// Cart state type
+interface CartState {
+  items: Product[];
+}
+
+// Initial state
+const initialState: CartState = {
+  items: [],
+};
+
+// Slice
+const cartSlice = createSlice({
+  name: "cart",
+  initialState,
+  reducers: {
+    addToCart: (state, action: PayloadAction<Product>) => {
+      const exists = state.items.find(
+        (item) => item.id === action.payload.id
+      );
+
+      // Duplicate prevent
+      if (!exists) {
+        state.items.push(action.payload);
+      }
+    },
+
+    removeFromCart: (state, action: PayloadAction<number>) => {
+      state.items = state.items.filter(
+        (item) => item.id !== action.payload
+      );
+    },
+  },
+});
+
+// Export actions
+export const { addToCart, removeFromCart } = cartSlice.actions;
+
+// Export reducer
+export default cartSlice.reducer;
