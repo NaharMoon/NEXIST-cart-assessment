@@ -14,6 +14,22 @@ export default function ProductList() {
 
   return (
     <section>
+      {/* view cart button, hidden on large screen */}
+      <a
+        href="#cart-section"
+        className="sticky top-4 z-10 mb-4 flex items-center justify-between rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-slate-800 lg:hidden"
+      >
+        <div className="flex items-center gap-2">
+          <FiShoppingCart />
+          <span>View Cart</span>
+        </div>
+
+        <span className="rounded-full bg-white px-3 py-1 text-xs font-bold text-slate-900">
+          {cartIds.length}
+        </span>
+      </a>
+
+      {/* main section */}
       <div className="mb-4 flex items-center justify-between">
         <div>
           <h2 className="text-2xl font-bold text-slate-900">Products</h2>
@@ -59,8 +75,8 @@ export default function ProductList() {
                   }}
                   disabled={isAdded}
                   className={`mt-4 w-full rounded-xl px-4 py-2.5 text-sm font-semibold transition flex items-center justify-center gap-2 ${isAdded
-                      ? "cursor-not-allowed bg-emerald-100 text-emerald-700"
-                      : "bg-blue-600 text-white hover:bg-blue-700"
+                    ? "cursor-not-allowed bg-emerald-100 text-emerald-700"
+                    : "bg-blue-600 text-white hover:bg-blue-700"
                     }`}
                 >
                   {isAdded ? (

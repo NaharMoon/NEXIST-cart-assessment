@@ -49,7 +49,10 @@ export default function Cart() {
   };
 
   return (
-    <aside className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm lg:sticky lg:top-6 lg:self-start">
+    <aside
+      id="cart-section"
+      className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm lg:sticky lg:top-6 lg:self-start"
+    >
       <div className="mb-5 flex items-start justify-between gap-4">
         <div>
           <h2 className="text-2xl font-bold text-slate-900">Your Cart</h2>
