@@ -26,36 +26,68 @@ export default function Cart() {
     .map((id) => products.find((product) => product.id === id))
     .filter((product) => product !== undefined);
 
+  const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
+
   return (
-    <section className="p-4 border rounded">
-      <h2 className="text-xl font-bold mb-4">Selected Cart Items</h2>
+    <aside className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm lg:sticky lg:top-6 lg:self-start">
+      <div className="mb-5 flex items-start justify-between gap-4">
+        <div>
+          <h2 className="text-2xl font-bold text-slate-900">Your Cart</h2>
+          <p className="text-sm text-slate-500">
+            Review and manage selected products.
+          </p>
+        </div>
+
+        <span className="rounded-full bg-blue-50 px-3 py-1 text-sm font-semibold text-blue-700">
+          {cartItems.length} item{cartItems.length !== 1 ? "s" : ""}
+        </span>
+      </div>
 
       {cartItems.length === 0 ? (
-        <p className="text-gray-500">
-          Your cart is empty. Add products from the list to see them here.
-        </p>
-      ) : (
-        <div className="space-y-3">
-          {cartItems.map((item) => (
-            <div
-              key={item.id}
-              className="flex items-center justify-between border p-3 rounded"
-            >
-              <div>
-                <h3 className="font-semibold">{item.name}</h3>
-                <p>BDT {item.price}</p>
-              </div>
-
-              <button
-                onClick={() => dispatch(removeFromCart(item.id))}
-                className="bg-red-500 text-white px-3 py-1 rounded"
-              >
-                Remove
-              </button>
-            </div>
-          ))}
+        <div className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-6 text-center">
+          <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-blue-50 text-2xl">
+            🛒
+          </div>
+          <h3 className="font-bold text-slate-800">Your cart is empty</h3>
+          <p className="mt-2 text-sm text-slate-500">
+            Click “Add to Cart” from any product to select it.
+          </p>
         </div>
+      ) : (
+        <>
+          <div className="space-y-3">
+            {cartItems.map((item) => (
+              <div
+                key={item.id}
+                className="flex items-center justify-between gap-4 rounded-xl border border-slate-200 bg-slate-50 p-4"
+              >
+                <div>
+                  <h3 className="font-semibold text-slate-900">{item.name}</h3>
+                  <p className="text-sm text-slate-500">BDT {item.price}</p>
+                </div>
+
+                <button
+                  onClick={() => dispatch(removeFromCart(item.id))}
+                  className="rounded-lg bg-red-500 px-3 py-2 text-sm font-semibold text-white transition hover:bg-red-600"
+                >
+                  Remove
+                </button>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-5 rounded-xl bg-slate-900 p-4 text-white">
+            <div className="flex items-center justify-between text-sm">
+              <span>Total selected</span>
+              <span>{cartItems.length}</span>
+            </div>
+            <div className="mt-2 flex items-center justify-between text-lg font-bold">
+              <span>Total price</span>
+              <span>BDT {totalPrice}</span>
+            </div>
+          </div>
+        </>
       )}
-    </section>
+    </aside>
   );
 }
