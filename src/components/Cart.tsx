@@ -2,9 +2,10 @@
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { removeFromCart, setCart } from "@/redux/features/cart/cartSlice";
+import { removeFromCart, setCart, clearCart } from "@/redux/features/cart/cartSlice";
 import { AppDispatch, RootState } from "@/redux/store";
 import { products } from "@/data/products";
+import Swal from "sweetalert2";
 
 export default function Cart() {
   const dispatch = useDispatch<AppDispatch>();
@@ -27,6 +28,22 @@ export default function Cart() {
     .filter((product) => product !== undefined);
 
   const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
+
+  const handleClearCart = () => {
+    Swal.fire({
+      title: "Clear all items?",
+      text: "This will remove every product from your cart.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, clear cart",
+      cancelButtonText: "Cancel",
+      confirmButtonColor: "#ef4444",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(clearCart());
+      }
+    });
+  };
 
   return (
     <aside className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm lg:sticky lg:top-6 lg:self-start">
@@ -86,6 +103,12 @@ export default function Cart() {
               <span>BDT {totalPrice}</span>
             </div>
           </div>
+          <button
+            onClick={handleClearCart}
+            className="mt-4 w-full rounded-xl border border-red-200 bg-red-50 px-4 py-2 text-sm font-semibold text-red-700 transition hover:bg-red-100"
+          >
+            Clear Cart
+          </button>
         </>
       )}
     </aside>
