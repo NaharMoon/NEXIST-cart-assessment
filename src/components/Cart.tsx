@@ -6,6 +6,8 @@ import { removeFromCart, setCart, clearCart } from "@/redux/features/cart/cartSl
 import { AppDispatch, RootState } from "@/redux/store";
 import { products } from "@/data/products";
 import Swal from "sweetalert2";
+import { toast } from "react-toastify";
+import { FiTrash2 } from "react-icons/fi";
 
 export default function Cart() {
   const dispatch = useDispatch<AppDispatch>();
@@ -41,6 +43,7 @@ export default function Cart() {
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(clearCart());
+        toast.success("Cart cleared");
       }
     });
   };
@@ -84,10 +87,13 @@ export default function Cart() {
                 </div>
 
                 <button
-                  onClick={() => dispatch(removeFromCart(item.id))}
-                  className="rounded-lg bg-red-500 px-3 py-2 text-sm font-semibold text-white transition hover:bg-red-600"
+                  onClick={() => {
+                    dispatch(removeFromCart(item.id));
+                    toast.info("Removed from cart");
+                  }}
+                  className="flex items-center gap-1 rounded-lg bg-red-500 px-3 py-2 text-sm font-semibold text-white transition hover:bg-red-600"
                 >
-                  Remove
+                  <FiTrash2 /> Remove
                 </button>
               </div>
             ))}

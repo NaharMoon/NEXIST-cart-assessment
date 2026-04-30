@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "@/redux/features/cart/cartSlice";
 import { AppDispatch, RootState } from "@/redux/store";
 import { products } from "@/data/products";
+import { toast } from "react-toastify";
+import { FiCheck, FiShoppingCart } from "react-icons/fi";
 
 export default function ProductList() {
   const dispatch = useDispatch<AppDispatch>();
@@ -51,15 +53,25 @@ export default function ProductList() {
                 <p className="mt-1 text-slate-500">BDT {product.price}</p>
 
                 <button
-                  onClick={() => dispatch(addToCart(product.id))}
+                  onClick={() => {
+                    dispatch(addToCart(product.id));
+                    toast.success("Added to cart");
+                  }}
                   disabled={isAdded}
-                  className={`mt-4 w-full rounded-xl px-4 py-2.5 text-sm font-semibold transition ${
-                    isAdded
+                  className={`mt-4 w-full rounded-xl px-4 py-2.5 text-sm font-semibold transition flex items-center justify-center gap-2 ${isAdded
                       ? "cursor-not-allowed bg-emerald-100 text-emerald-700"
                       : "bg-blue-600 text-white hover:bg-blue-700"
-                  }`}
+                    }`}
                 >
-                  {isAdded ? "Added ✓" : "Add to Cart"}
+                  {isAdded ? (
+                    <>
+                      <FiCheck /> Added
+                    </>
+                  ) : (
+                    <>
+                      <FiShoppingCart /> Add to Cart
+                    </>
+                  )}
                 </button>
               </div>
             </article>
