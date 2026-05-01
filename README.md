@@ -60,9 +60,11 @@
 
 ## 🧩 Problem Statement
 
-A user reported:
+**A user reported:**
 
-> “When I refresh the page, my selected items disappear. Also, I don’t understand how to use the feature properly.”
+> ```bash 
+>“When I refresh the page, my selected items disappear. Also, I don’t understand how to use the feature properly.”
+>```
 
 ## ⚠️ Key Issues
 
