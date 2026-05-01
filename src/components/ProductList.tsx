@@ -1,98 +1,45 @@
 "use client";
 
-import Image from "next/image";
-import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "@/redux/features/cart/cartSlice";
-import { AppDispatch, RootState } from "@/redux/store";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
 import { products } from "@/data/products";
-import { toast } from "react-toastify";
-import { FiCheck, FiShoppingCart } from "react-icons/fi";
+import { FiShoppingCart } from "react-icons/fi";
+import ProductCard from "./ProductCard";
 
 export default function ProductList() {
-  const dispatch = useDispatch<AppDispatch>();
   const cartIds = useSelector((state: RootState) => state.cart.items);
 
   return (
-    <section>
-      {/* view cart button, hidden on large screen */}
-      <a
-        href="#cart-section"
-        className="sticky top-4 z-10 mb-4 flex items-center justify-between rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-slate-800 lg:hidden"
-      >
-        <div className="flex items-center gap-2">
-          <FiShoppingCart />
-          <span>View Cart</span>
-        </div>
-
-        <span className="rounded-full bg-white px-3 py-1 text-xs font-bold text-slate-900">
-          {cartIds.length}
-        </span>
-      </a>
-
+    <section className="px-10 lg:px-0">
       {/* main section */}
-      <div className="mb-4 flex items-center justify-between">
+      <div className="mb-6 flex items-end justify-between gap-4 ">
         <div>
-          <h2 className="text-2xl font-bold text-slate-900">Products</h2>
-          <p className="text-sm text-slate-500">
-            Choose any product to add it to your cart.
+          <span className="mb-2 inline-block rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+            Online Courses
+          </span>
+
+          <h2 className="text-2xl font-bold text-slate-950">
+            <span className="text-purple-900">Explore</span> Your <span className="text-purple-900">Learning</span> Options
+          </h2>
+
+          <p className="mt-1 text-sm text-slate-500">
+            Browse courses, add what you need, and manage your learning — your cart stays saved.
           </p>
         </div>
 
-        <span className="rounded-full bg-white px-4 py-2 text-sm font-medium text-slate-600 shadow-sm">
-          {products.length} Products
+        <span className="hidden rounded-full bg-violet-100 px-3 py-1 text-sm text-violet-700 font-bold shadow-sm  sm:inline-block">
+          {products.length} Courses
         </span>
       </div>
 
-      <div className="grid gap-5 sm:grid-cols-2">
-        {products.map((product) => {
-          const isAdded = cartIds.includes(product.id);
-
-          return (
-            <article
-              key={product.id}
-              className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
-            >
-              <div className="mb-4 flex justify-center">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  width={180}
-                  height={140}
-                  className="h-36 w-full max-w-56 rounded-xl object-cover"
-                />
-              </div>
-
-              <div className="text-center">
-                <h3 className="text-lg font-bold text-slate-900">
-                  {product.name}
-                </h3>
-                <p className="mt-1 text-slate-500">BDT {product.price}</p>
-
-                <button
-                  onClick={() => {
-                    dispatch(addToCart(product.id));
-                    toast.success("Added to cart");
-                  }}
-                  disabled={isAdded}
-                  className={`mt-4 w-full rounded-xl px-4 py-2.5 text-sm font-semibold transition flex items-center justify-center gap-2 ${isAdded
-                    ? "cursor-not-allowed bg-emerald-100 text-emerald-700"
-                    : "bg-blue-600 text-white hover:bg-blue-700"
-                    }`}
-                >
-                  {isAdded ? (
-                    <>
-                      <FiCheck /> Added
-                    </>
-                  ) : (
-                    <>
-                      <FiShoppingCart /> Add to Cart
-                    </>
-                  )}
-                </button>
-              </div>
-            </article>
-          );
-        })}
+      <div className="grid gap-6 sm:grid-cols-2">
+        {products.map((product) => (
+          <ProductCard
+            key={product.id}
+            product={product}
+            isAdded={cartIds.includes(product.id)}
+          />
+        ))}
       </div>
     </section>
   );
