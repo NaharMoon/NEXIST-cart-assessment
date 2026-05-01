@@ -235,7 +235,9 @@ The application is designed to be simple and self-explanatory, even for non-tech
 - Improve animations and overall UI interactions
 
 ## 📷 Demo
+<!--### 🔗 Live Demo-->
 
+- [Live Site](https://nexist-cart-assessment.vercel.app/)
 <!--_Add screenshots or a short screen recording of the application here_-->
 
 <!-- Example:
