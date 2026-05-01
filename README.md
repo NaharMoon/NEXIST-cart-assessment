@@ -1,12 +1,17 @@
-# 🎓 Online Course Cart Application
+<h1 align="center">🎓 Online Course Cart Application</h1>
 
-A simple and user-friendly online course browsing and cart system built with **Next.js (App Router), TypeScript, Redux Toolkit, and Tailwind CSS**.
+<p align="center">
+  <b>A simple and user-friendly cart system</b>
+</p>
+<br/>
 
-This project was developed as part of the **Nexist Fullstack Support Engineer technical assessment**. The main goal was to solve a real user problem where cart items disappear after page refresh and improve the overall user experience.
+*****Online course browsing and cart system built with `Next.js (App Router), TypeScript, Redux Toolkit, and Tailwind CSS`.*****
 
-Users can browse courses, add them to a cart, remove selections, and keep their cart data saved even after refreshing the page.
+*****This project was developed as part of the `NEXIST Fullstack Support Engineer technical assessment`. The main goal was to solve a real user problem where cart items disappear after page refresh and improve the overall user experience.*****
 
-The focus of this project is to make the cart behavior reliable, predictable, and easy to understand, especially for non-technical users.
+*****Users can browse courses, add them to a cart, remove selections, and keep their cart data saved even after refreshing the page.*****
+
+*****The focus of this project is to make the cart behavior reliable, predictable, and easy to understand, especially for non-technical users.*****
 
 <br />
 
@@ -31,21 +36,27 @@ The focus of this project is to make the cart behavior reliable, predictable, an
 
 ## 🔗 Live Demo
 
-#### 🎥 Video Explanation
-
-- [Watch Loom Video](https://www.loom.com/share/c07faf21e7634986b2863ce7e09a6249)
-
-This video explains the problem, solution approach, and user experience improvements step by step.
-
-#### ✅ Improved Version
-
-- [View Improved Version](https://nexist-cart-assessment.vercel.app/)
-
-#### ⚠️ Problematic Version
-
-- [View Problematic Version](https://nexist-cart-problem-scenario.vercel.app/)
-
-The problematic version shows the original issue where cart items disappear after refreshing the page.
+>#### 🎥 Video Walkthrough
+>
+>- [Watch the Loom Video](https://www.loom.com/share/c07faf21e7634986b2863ce7e09a6249)
+>
+>A short walkthrough explaining the application, the reported issue, and how it was resolved step by step.
+>
+>---
+>
+>#### ✅ Improved Version (Final Solution)
+>
+>- [View Live Application](https://nexist-cart-assessment.vercel.app/)
+>
+>This is the final version with fixed cart persistence and improved user experience.
+>
+>---
+>
+>#### ⚠️ Problematic Version (Before Fix)
+>
+>- [View Problematic Version](https://nexist-cart-problem-scenario.vercel.app/)
+>
+>This version demonstrates the original issue where cart items disappear after refreshing the page.
 
 ## 🧩 Problem Statement
 
