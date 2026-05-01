@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { toast } from "react-toastify";
 import { FiCheck, FiClock, FiShoppingCart } from "react-icons/fi";
+import { GiCheckMark } from "react-icons/gi";
 import { Product } from "@/types/product";
 import { useDispatch } from "react-redux";
 import { addToCart } from "@/redux/features/cart/cartSlice";
@@ -96,7 +97,7 @@ export default function ProductCard({ product, isAdded }: ProductCardProps) {
       >
         {isAdded ? (
           <>
-            <FiCheck /> Course Added
+            <GiCheckMark /> Course Added
           </>
         ) : (
           <>

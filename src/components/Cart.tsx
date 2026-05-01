@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   removeFromCart,
@@ -17,6 +17,7 @@ import Image from "next/image";
 export default function Cart() {
   const dispatch = useDispatch<AppDispatch>();
   const cartIds = useSelector((state: RootState) => state.cart.items);
+  const [isCartLoaded, setIsCartLoaded] = useState(false);
 
   // Load saved cart from localStorage after page refresh
   useEffect(() => {
@@ -29,6 +30,9 @@ export default function Cart() {
         dispatch(setCart([]));
       }
     }
+
+    setIsCartLoaded(true);
+
   }, [dispatch]);
 
   // Convert cart ids into full course/product details
@@ -55,6 +59,21 @@ export default function Cart() {
     });
   };
 
+  if (!isCartLoaded) {
+    return (
+      <aside
+        id="cart-section"
+        className="mt-5 rounded-2xl border border-violet-100/80 bg-white/80 p-5 shadow-[0_20px_60px_rgba(109,40,217,0.12)] backdrop-blur-xl lg:sticky lg:top-6 lg:self-start"
+      >
+        <div className="animate-pulse space-y-4">
+          <div className="h-4 w-28 rounded bg-violet-100" />
+          <div className="h-7 w-40 rounded bg-violet-100" />
+          <div className="h-24 rounded-3xl bg-violet-50" />
+        </div>
+      </aside>
+    );
+  }
+  
   return (
     <aside
       id="cart-section"
@@ -73,6 +92,8 @@ export default function Cart() {
           {cartItems.length}
         </span>
       </div>
+
+
 
       {cartItems.length === 0 ? (
         <div className="rounded-3xl border border-dashed border-violet-200 bg-violet-50/60 p-6 text-center">
