@@ -8,6 +8,12 @@ Users can browse courses, add them to a cart, remove selections, and keep their 
 
 The focus of this project is to make the cart behavior reliable, predictable, and easy to understand, especially for non-technical users.
 
+<br />
+
+<p align="center">
+  <img src="./public/preview.png" width="700"/>
+</p>
+
 ---
 >***This project was built based on a real-world scenario provided in the **NEXIST** technical assessment.***
 ---
