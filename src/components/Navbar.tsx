@@ -37,7 +37,7 @@ export default function Navbar({ cartCount }: NavbarProps) {
 
           {/* Badge */}
           {cartCount > 0 && (
-            <span className="absolute -top-1 -right-1 flex h-5 min-w-[20px] items-center justify-center rounded-full bg-violet-600 px-1 text-xs font-medium text-white">
+            <span className="absolute -top-1 -right-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-violet-600 px-1 text-xs font-medium text-white">
               {cartCount}
             </span>
           )}

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { toast } from "react-toastify";
-import { FiCheck, FiClock, FiShoppingCart } from "react-icons/fi";
+import { FiClock, FiShoppingCart } from "react-icons/fi";
 import { GiCheckMark } from "react-icons/gi";
 import { Product } from "@/types/product";
 import { useDispatch } from "react-redux";
@@ -80,7 +80,7 @@ export default function ProductCard({ product, isAdded }: ProductCardProps) {
           className="object-cover transition duration-500 group-hover:scale-105"
         />
 
-        <span className="absolute bottom-3 right-3 flex items-center gap-1 rounded-full bg-ye-950/80 px-3 py-1 text-xs font-medium text-white backdrop-blur">
+        <span className="absolute bottom-3 right-3 flex items-center gap-1 rounded-full bg-yellow-950/80 px-3 py-1 text-xs font-medium text-white backdrop-blur">
           <FiClock />
           {product.duration}
         </span>
@@ -91,13 +91,13 @@ export default function ProductCard({ product, isAdded }: ProductCardProps) {
         onClick={handleAddToCart}
         disabled={isAdded}
         className={`mt-2 flex w-full items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-semibold ${isAdded
-          ? "cursor-not-allowed bg-emerald-500/90 text-white shadow-md shadow-emerald-500/20 backdrop-blur"
+          ? "text-green-700"
           : "transition-all duration-500 active:scale-[0.9] bg-linear-to-r from-indigo-600/90 to-violet-700/90 text-white shadow-lg shadow-violet-500/20 backdrop-blur hover:from-indigo-500 hover:to-violet-500 hover:shadow-xl hover:shadow-violet-500/30"
           }`}
       >
         {isAdded ? (
           <>
-            <GiCheckMark /> Course Added
+            <GiCheckMark /> Course Added in Cart
           </>
         ) : (
           <>

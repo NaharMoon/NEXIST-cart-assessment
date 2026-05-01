@@ -112,7 +112,7 @@ export default function Cart() {
             {cartItems.map((item) => (
               <div
                 key={item.id}
-                className="group flex items-center gap-3 rounded-xl border border-violet-100 bg-gradient-to-br from-white to-violet-50/70 p-3 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-200 hover:shadow-[0_14px_35px_rgba(124,58,237,0.14)]"
+                className="group flex items-center gap-3 rounded-xl border border-violet-100 bg-linear-to-br from-white to-violet-50/70 p-3 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-200 hover:shadow-[0_14px_35px_rgba(124,58,237,0.14)]"
               >
                 {/* Course image */}
                 <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-md bg-violet-100">
@@ -141,7 +141,7 @@ export default function Cart() {
                     dispatch(removeFromCart(item.id));
                     toast.info("Course removed from cart");
                   }}
-                  className="group/remove flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-violet-100 bg-white text-slate-400 shadow-sm transition-all duration-300 hover:w-[92px] hover:border-red-100 hover:bg-red-50 hover:px-3 hover:text-red-600"
+                  className="group/remove flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-violet-100 bg-white text-slate-400 shadow-sm transition-all duration-300 hover:w-23 hover:border-red-100 hover:bg-red-50 hover:px-3 hover:text-red-600"
                   aria-label="Remove course"
                 >
                   <FiX className="text-lg transition-all duration-300 group-hover/remove:hidden" />
@@ -156,7 +156,7 @@ export default function Cart() {
           </div>
 
           {/* Cart summary */}
-          <div className="mt-5 rounded-3xl bg-gradient-to-br from-violet-700 via-purple-700 to-indigo-800 px-6 py-4 text-white shadow-[0_18px_45px_rgba(109,40,217,0.28)]">
+          <div className="mt-5 rounded-3xl bg-linear-to-br from-violet-700 via-purple-700 to-indigo-800 px-6 py-4 text-white shadow-[0_18px_45px_rgba(109,40,217,0.28)]">
             <div className="flex items-center justify-between text-sm text-violet-100">
               <span>Selected courses</span>
               <span className="font-bold">{cartItems.length}</span>
