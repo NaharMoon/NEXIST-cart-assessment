@@ -27,7 +27,7 @@ The focus of this project is to make the cart behavior reliable, predictable, an
 
 ### 🎥 Video Explanation
 
-[Watch Loom Video](YOUR_VIDEO_LINK_HERE)
+[Watch Loom Video](https://www.loom.com/share/c07faf21e7634986b2863ce7e09a6249)
 
 This video explains the problem, solution approach, and user experience improvements step by step.
 
@@ -37,7 +37,7 @@ This video explains the problem, solution approach, and user experience improvem
 
 ### ⚠️ Problematic Version
 
-[View Problematic Version](ADD_PROBLEMATIC_VERSION_LINK_HERE)
+[View Problematic Version](https://nexist-cart-problem-scenario.vercel.app/)
 
 The problematic version shows the original issue where cart items disappear after refreshing the page.
 
