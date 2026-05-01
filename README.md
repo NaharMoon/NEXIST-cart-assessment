@@ -1,21 +1,45 @@
-# 🛒 Product Cart Application
+# 🎓 Online Course Cart Application
 
-A clean and user-focused product cart application built with **Next.js (App Router), TypeScript, and Redux Toolkit**.
+A simple and user-friendly online course browsing and cart system built with **Next.js (App Router), TypeScript, Redux Toolkit, and Tailwind CSS**.
 
-This project was developed as part of a technical assessment to solve a real user problem, **"cart data disappearing after page refresh"**. The solution ensures reliable state persistence using **localStorage**, prevents duplicate product entries, and improves usability through clear feedback and intuitive UI behavior.
+This project was developed as part of the **Nexist Fullstack Support Engineer technical assessment**. The main goal was to solve a real user problem where cart items disappear after page refresh and improve the overall user experience.
 
-The goal is to make the cart **consistent, reliable, and easy to understand for non-technical users**.
+Users can browse courses, add them to a cart, remove selections, and keep their cart data saved even after refreshing the page.
+
+The focus of this project is to make the cart behavior reliable, predictable, and easy to understand, especially for non-technical users.
+
+---
+>***This project was built based on a real-world scenario provided in the **NEXIST** technical assessment.***
+---
 
 ## 🚀 Features
 
-- Browse products easily  
-- Add items to cart  
-- Remove items from cart  
-- Cart data persists after page refresh  
-- View total items and total price  
-- Clear cart with confirmation  
-- Visual feedback for user actions (button state & notifications)
+- Browse available online courses
+- Add courses to the cart
+- Remove courses from the cart
+- Persist cart data after page refresh
+- Prevent duplicate course selection
+- Show clear visual feedback for added courses
+- Display total selected courses and total price
+- Clear cart with confirmation
 
+## 🔗 Live Demo
+
+### 🎥 Video Explanation
+
+[Watch Loom Video](YOUR_VIDEO_LINK_HERE)
+
+This video explains the problem, solution approach, and user experience improvements step by step.
+
+### ✅ Improved Version
+
+[View Improved Version](https://nexist-cart-assessment.vercel.app/)
+
+### ⚠️ Problematic Version
+
+[View Problematic Version](ADD_PROBLEMATIC_VERSION_LINK_HERE)
+
+The problematic version shows the original issue where cart items disappear after refreshing the page.
 
 ## 🧩 Problem Statement
 
@@ -23,131 +47,154 @@ A user reported:
 
 > “When I refresh the page, my selected items disappear. Also, I don’t understand how to use the feature properly.”
 
-### Key Issues
+## ⚠️ Key Issues
 
 - Cart data was not persistent and got lost after refresh  
-- The user interface did not provide enough guidance or feedback
+- Cart state was stored only in memory (Redux)  
+- Users lost selected items after page reload  
+- UI did not clearly indicate what was happening  
+- Lack of feedback after user actions  
+- Duplicate item handling needed improvement
 
-
-## ✅ Solution Approach
-
-To address the issues, I focused on two key areas: data persistence and user experience.
-
-### ✔️ Fixing Cart Data Loss
-
-- Stored cart data in **localStorage**  
-- Synced Redux state with localStorage  
-- Loaded saved cart data when the app initializes  
-
-This ensures that users do not lose their cart items after refreshing the page.
 
 ---
 
-### ✔️ Improving User Experience
+## ✅ Solution Overview
 
-- Added a clear empty cart message  
-- Provided visual feedback for actions (button state & notifications)  
-- Displayed cart summary (total items and price)  
-- Added confirmation before clearing the cart  
+The solution focuses on two main areas:
 
-These improvements make the application more intuitive and user-friendly.
+- Fixing cart data persistence  
+- Improving user experience
 
----
 
-## 🧠 Design Decisions
+## 🔄 Fixing Cart Data Loss
 
-- Stored only **product IDs** in the cart instead of full product objects  
-- Derived complete product details from the main product list  
+Previously, cart data was stored only in Redux state, which resets on page refresh.
 
-**Why this approach?**
+To fix this:
 
-- Avoids duplicating data in storage  
-- Keeps localStorage lightweight and efficient  
-- Makes state management simpler and cleaner  
-- Improves scalability for larger datasets  
+- Cart data is saved in **localStorage**  
+- Saved data is loaded when the application starts  
+- Redux state is updated using the stored data  
 
----
+This ensures users do not lose their selected items after refreshing the page.
 
-- Used **Redux Toolkit** for centralized state management  
+### ⚙️ How It Works
 
-**Why Redux?**
+1. User adds a course  
+2. Cart updates in Redux  
+3. Data is saved to localStorage  
+4. User refreshes the page  
+5. Data is loaded from localStorage  
+6. Cart is restored
 
-- Provides predictable state updates  
-- Makes cart state easier to manage across components  
-- Improves maintainability as the app grows  
+## 🔒 Duplicate Prevention
 
----
+To prevent adding the same item multiple times:
 
-- Used **localStorage** for persistence instead of backend storage  
-
-**Why localStorage?**
-
-- Simple and quick to implement  
-- No backend required for this use case  
-- Sufficient for small-scale applications
-
----
-
-## 🔒 Duplicate Product Prevention
-
-To prevent adding the same product multiple times:
-
-- Disabled the "Add to Cart" button for already added items  
-- Checked existing product IDs in Redux state before adding  
+- Disabled the **Add to Cart** button for already added items  
+- Checked existing item IDs in Redux state before adding  
 
 **Why this matters?**
 
 - Prevents duplicate entries in the cart  
 - Keeps cart data clean and consistent  
-- Improves user experience by avoiding confusion  
+- Improves user experience by avoiding confusion
 
 
+## 🎨 User Experience Improvements
+
+- Clear empty cart message to guide users  
+- Visual feedback for actions (button state, toast notifications)  
+- Cart summary showing total items and total price  
+- Confirmation before clearing the cart  
+- Improved layout and overall UI clarity
+
+---
+## 🧠 Design Decisions
+
+### 1. Storing Only Course IDs in Cart
+
+- Stored only **course IDs** instead of full objects  
+- Derived full course details from the main data source  
+
+**Why?**
+
+- Avoids duplicating data  
+- Keeps localStorage lightweight  
+- Simplifies state management  
+- Makes the system more scalable  
+
+### 2. Using Redux Toolkit
+
+- Used **Redux Toolkit** for centralized state management  
+
+**Why?**
+
+- Provides predictable state updates  
+- Makes cart state easier to manage across components  
+- Improves maintainability  
+
+### 3. Using localStorage for Persistence
+
+- Used **localStorage** instead of backend storage  
+
+**Why?**
+
+- Simple and quick to implement  
+- No backend required for this use case  
+- Suitable for small-scale applications  
+---
 ## 🛠️ Tech Stack
 
-**Frontend:**  
+**Frontend**
 - Next.js  
-- React.js  
+- React  
 - TypeScript  
 
-**State Management:**  
+**State Management**
 - Redux Toolkit  
 
-**Styling:**  
+**Styling**
 - Tailwind CSS  
 
-**Storage:**  
+**Storage**
 - localStorage
 
-
-## 📁 Project Structure
+## 📁 Folder Structure
 
 ```bash
 .
-├── public/
-│
+├── public/                    # Static assets (images, etc.)
+
 ├── src/
-│   ├── app/                    # Next.js app router
-│   │   ├── favicon.ico
+│   ├── app/                   # Next.js App Router
 │   │   ├── globals.css
+│   │   ├── icon.png
 │   │   ├── layout.tsx
 │   │   └── page.tsx
 │   │
-│   ├── components/             # UI components
+│   ├── components/            # Reusable UI components
 │   │   ├── Cart.tsx
+│   │   ├── Footer.tsx
+│   │   ├── Navbar.tsx
+│   │   ├── ProductCard.tsx
 │   │   └── ProductList.tsx
 │   │
-│   ├── data/                   # Static product data
+│   ├── data/                  # Static product data
 │   │   └── products.ts
 │   │
-│   ├── providers/              # Redux provider setup
+│   ├── providers/             # Global providers (Redux)
 │   │   └── ReduxProvider.tsx
 │   │
-│   ├── redux/                  # Redux store & features
+│   ├── redux/                 # Redux store & features
 │   │   ├── features/
+│   │   │   └── cart/
+│   │   │       └── cartSlice.ts
 │   │   └── store.ts
 │   │
-│   ├── types/                  # TypeScript types
-│   │   └── product.ts
+│   └── types/                 # TypeScript types
+│       └── product.ts
 │
 ├── .gitignore
 ├── eslint.config.mjs
@@ -155,99 +202,68 @@ To prevent adding the same product multiple times:
 ├── next.config.ts
 ├── package.json
 ├── package-lock.json
-├── postcss.config.mjs
 └── README.md
 
 ```
----
-## ⚙️ Installation & Setup
-
-
-### 1. Clone the repository
-```bash
-git clone https://github.com/NaharMoon/NEXIST-cart-assessment.git
-cd NEXIST-cart-assessment
-```
-
-### 2. Install dependencies
-```bash
-npm install
-```
-
-### 3. Run the development server
-```bash
-npm run dev
-```
-
-## 🔄 How It Works
-
-1. User adds a product → Redux state updates  
-2. Updated cart data is saved to **localStorage**  
-3. On page reload → data is retrieved from localStorage  
-4. Redux store is rehydrated with saved cart data  
-
-This ensures that the cart remains consistent even after refreshing the page.
 
 ---
 
-## 🧪 End-to-End Testing & Observations
+## 🧪 End-to-End Testing
 
-Tested the application from a real user perspective and identified the following:
+Tested the application from a real user perspective.
 
-### ✔️ Issue 1: Duplicate Add Attempt
-- Users could try adding the same item multiple times  
-- **Fix:** Disabled the button and added state-level validation  
+### Issue 1: Cart Data Loss
+- Problem: Cart items disappeared after refresh  
+- Fix: Implemented localStorage persistence  
 
-### ✔️ Issue 2: Empty Cart Confusion
-- Users were unsure what to do when the cart was empty  
-- **Fix:** Added a clear empty cart message with guidance  
+### Issue 2: Duplicate Item Attempt
+- Problem: Users could try adding the same course multiple times  
+- Fix: Disabled button + added state-level validation  
 
-These improvements ensure a smoother and more intuitive user experience.
+### Issue 3: Empty Cart Confusion
+- Problem: Empty cart was unclear  
+- Fix: Added a clear empty state message  
 
-## 🎯 User Experience Highlights
-
-- Clear empty cart message to guide users  
-- Instant visual feedback on actions (button state & notifications)  
-- Disabled state for already added items  
-- Cart summary showing total items and total price  
-- Confirmation prompt before clearing the cart  
-
-These improvements make the application more intuitive and user-friendly.
+These improvements ensure a smoother and more understandable user experience.
 
 ---
 
-## 👤 How a Non-Technical User Uses This
+## 🔄 User Flow
 
-- Browse products and click "Add to Cart"  
-- See instant feedback when an item is added  
-- View selected items in the cart section  
-- Refresh the page without losing cart data  
-- Remove items easily when needed  
+- User browses available courses  
+- Adds a course to the cart  
+- Sees instant feedback  
+- Views selected courses in the cart  
+- Refreshes the page without losing data  
+- Removes or clears courses when needed
 
-The application is designed to be simple and self-explanatory, even for non-technical users.
+## 👀 For Non-Technical Users
 
-## 📌 Future Improvements
+This application is designed to be simple and easy to use.
 
-- Add quantity control for each product  
-- Sync cart with backend for logged-in users  
-- Implement authentication system  
-- Add product filtering and search functionality  
-- Improve animations and overall UI interactions
+Users don’t need to understand how the system works internally.  
+They can just:
 
-## 📷 Demo
-<!--### 🔗 Live Demo-->
+- Click "Add to Cart" to select a course  
+- See confirmation instantly after adding  
+- View all selected courses in one place  
+- Refresh the page without losing anything  
+- Remove or clear items anytime  
 
-- [Live Site](https://nexist-cart-assessment.vercel.app/)
-<!--_Add screenshots or a short screen recording of the application here_-->
+Everything works in a straightforward and predictable way, so users always know what is happening.
 
-<!-- Example:
-![App Screenshot](./screenshots/demo.png)
--->
+## 🚀 Future Improvements
 
-## 🙌 Author
+- Add course search and filtering  
+- Add authentication system  
+- Sync cart with backend  
+- Improve animations and interactions
 
-**Nazmun Nahar Moon**  
-Full-Stack Developer (MERN) 
+---
+
+## 👤 Author
+
+**Nazmun Nahar Moon**
 
 - GitHub: https://github.com/NaharMoon  
 - LinkedIn: https://www.linkedin.com/in/nahar-moon  
