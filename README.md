@@ -31,19 +31,19 @@ The focus of this project is to make the cart behavior reliable, predictable, an
 
 ## 🔗 Live Demo
 
-### 🎥 Video Explanation
+#### 🎥 Video Explanation
 
-[Watch Loom Video](https://www.loom.com/share/c07faf21e7634986b2863ce7e09a6249)
+- [Watch Loom Video](https://www.loom.com/share/c07faf21e7634986b2863ce7e09a6249)
 
 This video explains the problem, solution approach, and user experience improvements step by step.
 
-### ✅ Improved Version
+#### ✅ Improved Version
 
-[View Improved Version](https://nexist-cart-assessment.vercel.app/)
+- [View Improved Version](https://nexist-cart-assessment.vercel.app/)
 
-### ⚠️ Problematic Version
+#### ⚠️ Problematic Version
 
-[View Problematic Version](https://nexist-cart-problem-scenario.vercel.app/)
+- [View Problematic Version](https://nexist-cart-problem-scenario.vercel.app/)
 
 The problematic version shows the original issue where cart items disappear after refreshing the page.
 
@@ -212,6 +212,31 @@ To prevent adding the same item multiple times:
 
 ```
 
+## ⚙️ Installation & Setup
+
+#### 1. Clone the repository
+```bash
+git clone https://github.com/NaharMoon/NEXIST-cart-assessment.git
+cd NEXIST-cart-assessment
+```
+
+#### 2. Install dependencies
+```bash
+npm install
+```
+
+#### 3. Run the development server
+```bash
+npm run dev
+```
+
+#### 📦 Dependencies
+
+- Next.js
+- React
+- Redux Toolkit
+- Tailwind CSS
+
 ---
 
 ## 🧪 End-to-End Testing
@@ -267,9 +292,11 @@ Everything works in a straightforward and predictable way, so users always know 
 
 ---
 
-## 👤 Author
+>## 👤 Author
 
-**Nazmun Nahar Moon**
+>**Nazmun Nahar Moon**
 
-- GitHub: https://github.com/NaharMoon  
-- LinkedIn: https://www.linkedin.com/in/nahar-moon  
+>- GitHub: https://github.com/NaharMoon  
+>- LinkedIn: https://www.linkedin.com/in/nahar-moon
+>- ---
+> 🌐 [Live Site](https://nexist-cart-assessment.vercel.app/)
